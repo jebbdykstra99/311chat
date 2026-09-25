@@ -35,25 +35,59 @@
   const ADMIN_UID = 'o774wL9hUVSi19EkDCgLqQomP8i2';
   const DM_TEXT_MAX = 1000;
 
-  try {
-    firebase.initializeApp({
-    apiKey: "AIzaSyD4CgKQTylEy03Lh9Uhe9UVloyrKaK3bdY",
-    authDomain: "subx-skins.firebaseapp.com",
-    projectId: "subx-skins",
-    storageBucket: "subx-skins.firebasestorage.app",
-    messagingSenderId: "869847405863",
-    appId: "1:869847405863:web:26f902efb9a4ee0b7c0502"
-    });
-    fbAuth = firebase.auth();
-    try {
-      fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-    } catch (ePersist) { console.warn('auth persistence', ePersist); }
-    fbDb = firebase.firestore();
-    fbStorage = firebase.storage();
-    try {
-      firebase.appCheck().activate('6LffWZAtAAAAAGAXCR6JcwiXEY5FnowtegOLmElk', true);
-    } catch (e2) { console.warn('app-check', e2); }
-  } catch (e) { console.warn('subx-skins init', e); }
+  const FB_WEB_CONFIG_URL = 'https://subx-skins.web.app/firebase-web-config.json';
+
+  function initFirebaseFromHostedConfig() {
+    return fetch(FB_WEB_CONFIG_URL, { credentials: 'omit' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Firebase web config HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (cfg) {
+        if (!cfg || !cfg.apiKey || !cfg.projectId || !cfg.appId) {
+          throw new Error('Firebase web config incomplete');
+        }
+        firebase.initializeApp({
+          apiKey: cfg.apiKey,
+          authDomain: cfg.authDomain,
+          projectId: cfg.projectId,
+          storageBucket: cfg.storageBucket,
+          messagingSenderId: cfg.messagingSenderId,
+          appId: cfg.appId
+        });
+        fbAuth = firebase.auth();
+        var persist = Promise.resolve();
+        try {
+          persist = fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL) || Promise.resolve();
+        } catch (ePersist) { console.warn('auth persistence', ePersist); }
+        fbDb = firebase.firestore();
+        fbStorage = firebase.storage();
+        try {
+          if (cfg.appCheckSiteKey) firebase.appCheck().activate(cfg.appCheckSiteKey, true);
+        } catch (e2) { console.warn('app-check', e2); }
+        return Promise.resolve(persist).catch(function (ePersist) {
+          console.warn('auth persistence', ePersist);
+        });
+      })
+      .catch(function (e) { console.warn('subx-skins init', e); });
+  }
+
+  var fbReadyPromise = initFirebaseFromHostedConfig();
+
+  function runWithAuth(errEl, fn) {
+    var go = function () {
+      if (!fbAuth) {
+        if (errEl) {
+          errEl.textContent = 'Auth is not ready.';
+          errEl.classList.add('show');
+        }
+        return;
+      }
+      fn();
+    };
+    if (fbAuth) go();
+    else fbReadyPromise.then(go);
+  }
 
   const hamburger = document.getElementById('hamburger');
   const sidebar = document.getElementById('sidebar');
@@ -3692,53 +3726,55 @@
     });
     document.getElementById('cv-login-btn').addEventListener('click', function () {
       const err = document.getElementById('cv-login-err');
-      const email = (document.getElementById('cv-login-email').value || '').trim();
-      const pw = document.getElementById('cv-login-pw').value || '';
-      if (!fbAuth) { err.textContent = 'Auth is not ready.'; err.classList.add('show'); return; }
-      err.textContent = '';
-      markAuthLand();
-      fbAuth.signInWithEmailAndPassword(email, pw).catch(function (e) {
-        err.textContent = (e && e.message) ? e.message : 'Sign-in failed.';
-        err.classList.add('show');
+      runWithAuth(err, function () {
+        const email = (document.getElementById('cv-login-email').value || '').trim();
+        const pw = document.getElementById('cv-login-pw').value || '';
+        err.textContent = '';
+        markAuthLand();
+        fbAuth.signInWithEmailAndPassword(email, pw).catch(function (e) {
+          err.textContent = (e && e.message) ? e.message : 'Sign-in failed.';
+          err.classList.add('show');
+        });
       });
     });
     document.getElementById('cv-reg-btn').addEventListener('click', function () {
       const err = document.getElementById('cv-reg-err');
-      const name = (document.getElementById('cv-reg-name').value || '').trim();
-      const email = (document.getElementById('cv-reg-email').value || '').trim();
-      const pw = document.getElementById('cv-reg-pw').value || '';
-      const age = document.getElementById('cv-reg-age');
-      if (!fbAuth) { err.textContent = 'Auth is not ready.'; err.classList.add('show'); return; }
-      if (!age || !age.checked) {
-        err.textContent = 'Confirm you are 13 or older and agree to the preview Terms and Privacy pages.';
-        err.classList.add('show');
-        return;
-      }
-      if (!email || pw.length < 6) { err.textContent = 'Email and a password of at least 6 characters.'; err.classList.add('show'); return; }
-      err.textContent = '';
-      markAuthLand();
-      fbAuth.createUserWithEmailAndPassword(email, pw).then(function (cred) {
-        const disp = name || email.split('@')[0];
-        cred.user.sendEmailVerification().catch(function () {});
-        return cred.user.updateProfile({ displayName: disp }).then(function () {
-          if (fbDb) {
-            return fbDb.collection('users').doc(cred.user.uid).set({
-              displayName: disp,
-                            siteId: SITE_ID,
-              createdAt: firebase.firestore.FieldValue.serverTimestamp()
-            }, { merge: true });
-          }
-        }).then(function () {
-          composeErr('Account created. Verify your email before posting.');
+      runWithAuth(err, function () {
+        const name = (document.getElementById('cv-reg-name').value || '').trim();
+        const email = (document.getElementById('cv-reg-email').value || '').trim();
+        const pw = document.getElementById('cv-reg-pw').value || '';
+        const age = document.getElementById('cv-reg-age');
+        if (!age || !age.checked) {
+          err.textContent = 'Confirm you are 13 or older and agree to the preview Terms and Privacy pages.';
+          err.classList.add('show');
+          return;
+        }
+        if (!email || pw.length < 6) { err.textContent = 'Email and a password of at least 6 characters.'; err.classList.add('show'); return; }
+        err.textContent = '';
+        markAuthLand();
+        fbAuth.createUserWithEmailAndPassword(email, pw).then(function (cred) {
+          const disp = name || email.split('@')[0];
+          cred.user.sendEmailVerification().catch(function () {});
+          return cred.user.updateProfile({ displayName: disp }).then(function () {
+            if (fbDb) {
+              return fbDb.collection('users').doc(cred.user.uid).set({
+                displayName: disp,
+                              siteId: SITE_ID,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+              }, { merge: true });
+            }
+          }).then(function () {
+            composeErr('Account created. Verify your email before posting.');
+          });
+        }).catch(function (e) {
+          err.textContent = (e && e.message) ? e.message : 'Could not create account.';
+          err.classList.add('show');
         });
-      }).catch(function (e) {
-        err.textContent = (e && e.message) ? e.message : 'Could not create account.';
-        err.classList.add('show');
       });
     });
     document.getElementById('cv-google-login').addEventListener('click', function () {
       var err = document.getElementById('cv-login-err');
-      if (!fbAuth) { err.textContent = 'Auth is not ready.'; err.classList.add('show'); return; }
+      runWithAuth(err, function () {
       var age = document.getElementById('cv-google-age');
       if (!age || !age.checked) {
         err.textContent = 'Confirm you are 13 or older and agree to the preview Terms and Privacy pages.';
@@ -3786,6 +3822,7 @@
           failGoogle(e);
         });
       }
+      });
     });
     document.getElementById('cv-guest-login').addEventListener('click', function () { stubSignIn('Guest', 'guest'); });
 
@@ -4667,38 +4704,6 @@
     hideDummyChrome();
     syncChatChrome();
 
-    if (fbAuth) {
-      fbAuth.getRedirectResult().then(function (cred) {
-        var u = cred && cred.user;
-        if (fbDb && u) {
-          var disp = u.displayName || (u.email || 'member').split('@')[0];
-          return fbDb.collection('users').doc(u.uid).set({
-            displayName: disp,
-            siteId: SITE_ID,
-            provider: 'google',
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-          }, { merge: true });
-        }
-      }).catch(function () {});
-      fbAuth.onAuthStateChanged(function (user) {
-        if (user) applyFbUser(user);
-        else {
-          listenBlocks(null);
-          if (currentUser && currentUser.live) {
-            currentUser = null;
-            saveJSON(LS_USER, null);
-            renderSidebarAuth();
-            hideDummyChrome();
-            teardownDms();
-            listenConversations();
-            syncProfile();
-            renderFeed();
-          }
-        }
-      });
-    }
-
-    listenKillSwitch();
     wireEvents();
     document.addEventListener('subx-auth-land', function () { landInFeedCompose(); });
     renderTrends();
@@ -4706,9 +4711,7 @@
     renderNotifs();
     renderThreads();
     renderSidebarAuth();
-    listenLivePosts();
     renderFeed();
-    initStories();
     railOverlayUiReady = true;
     wireRailOverlay();
     maybeShowRailOverlay();
@@ -4727,6 +4730,42 @@
     }
     syncHamburgerAria();
     try { if (!sessionStorage.getItem('subx.hit.'+SITE_ID)) { sessionStorage.setItem('subx.hit.'+SITE_ID,'1'); sendPixel(); } } catch (e) {}
+
+    fbReadyPromise.then(function () {
+      if (fbAuth) {
+        fbAuth.getRedirectResult().then(function (cred) {
+          var u = cred && cred.user;
+          if (fbDb && u) {
+            var disp = u.displayName || (u.email || 'member').split('@')[0];
+            return fbDb.collection('users').doc(u.uid).set({
+              displayName: disp,
+              siteId: SITE_ID,
+              provider: 'google',
+              createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true });
+          }
+        }).catch(function () {});
+        fbAuth.onAuthStateChanged(function (user) {
+          if (user) applyFbUser(user);
+          else {
+            listenBlocks(null);
+            if (currentUser && currentUser.live) {
+              currentUser = null;
+              saveJSON(LS_USER, null);
+              renderSidebarAuth();
+              hideDummyChrome();
+              teardownDms();
+              listenConversations();
+              syncProfile();
+              renderFeed();
+            }
+          }
+        });
+      }
+      listenKillSwitch();
+      listenLivePosts();
+      initStories();
+    });
   }
 
   fetch(SITE_JSON_URL)
