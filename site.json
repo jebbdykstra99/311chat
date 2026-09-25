@@ -1,0 +1,165 @@
+{
+  "siteId": "311chat",
+  "roomNumber": 17,
+  "redditSr": "311chat",
+  "name": "311chat",
+  "tagline": "Non-emergency city help. Find your 311.",
+  "composePlaceholder": "What needs fixing in your city?",
+  "emptyState": "Pick your city above to find official 311 channels. Sign in to talk with neighbors. Guest can browse only.",
+  "preview": true,
+  "noindex": true,
+  "domain": "311chat.com",
+  "earlyWelcome": false,
+  "dms": false,
+  "robots": "noindex, nofollow",
+  "honesty": "Unofficial helper · not a substitute for 911 · links to official city channels · preview",
+  "trustBlurb": "Unofficial helper. Not a substitute for 911. Links to official city channels. Guest can browse. Preview.",
+  "exploreExplainer": "Eight city nests. Pick one for the official 311 handoff. This room does not file the report.",
+  "locationGate": {
+    "enabled": true,
+    "prompt": "Where are you? We'll find your city's non-emergency 311.",
+    "fields": [
+      "city",
+      "zip"
+    ],
+    "geolocationOptIn": true
+  },
+  "theme": {
+    "bg": "#f4f6f8",
+    "surface": "#ffffff",
+    "nav-bg": "#0f2744",
+    "nav-text": "#9fb4cc",
+    "nav-hover": "#e8eef5",
+    "nav-active": "#f4f6f8",
+    "text": "#152033",
+    "text-muted": "#5a6b7d",
+    "text-light": "#7a8b9c",
+    "accent": "#e8a317",
+    "accent-dark": "#c4860c",
+    "teal": "#2a6f8c",
+    "silver": "#c5ced8",
+    "border": "#d8e0e8",
+    "avatarColors": [
+      "#0f2744",
+      "#2a6f8c",
+      "#e8a317",
+      "#c4860c",
+      "#3d5a73",
+      "#1a3a55"
+    ]
+  },
+  "nests": [
+    {
+      "slug": "nyc",
+      "label": "New York City",
+      "parent": null,
+      "kind": "city",
+      "blurb": "NYC 311 — call 311 or use the official portal.",
+      "nav": true
+    },
+    {
+      "slug": "la",
+      "label": "Los Angeles",
+      "parent": null,
+      "kind": "city",
+      "blurb": "LA 311 — MyLA311 and 3-1-1.",
+      "nav": true
+    },
+    {
+      "slug": "chicago",
+      "label": "Chicago",
+      "parent": null,
+      "kind": "city",
+      "blurb": "CHI 311 — non-emergency city services.",
+      "nav": true
+    },
+    {
+      "slug": "houston",
+      "label": "Houston",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Houston 311 — city services and info.",
+      "nav": true
+    },
+    {
+      "slug": "phoenix",
+      "label": "Phoenix",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Phoenix 311 — neighborhood services.",
+      "nav": true
+    },
+    {
+      "slug": "philadelphia",
+      "label": "Philadelphia",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Philly 311 — non-emergency municipal help.",
+      "nav": true
+    },
+    {
+      "slug": "san-antonio",
+      "label": "San Antonio",
+      "parent": null,
+      "kind": "city",
+      "blurb": "San Antonio 311 — city services.",
+      "nav": true
+    },
+    {
+      "slug": "boston",
+      "label": "Boston",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Boston 311 — report and request city services.",
+      "nav": true
+    }
+  ],
+  "directory": {
+    "note": "Official contacts only; expand later. Placeholders until FACT-cleared.",
+    "cities": {
+      "nyc": {
+        "phone": "311",
+        "portal": "https://portal.311.nyc.gov/",
+        "label": "NYC 311"
+      },
+      "la": {
+        "phone": "311",
+        "portal": "https://myla311.lacity.org/",
+        "label": "MyLA311"
+      },
+      "chicago": {
+        "phone": "311",
+        "portal": "https://311.chicago.gov/",
+        "label": "CHI 311"
+      },
+      "houston": {
+        "phone": "311",
+        "portal": "https://www.houstontx.gov/311/",
+        "label": "Houston 311"
+      },
+      "phoenix": {
+        "phone": "602-262-7844",
+        "portal": "https://www.phoenix.gov/cityclerk/public-records/311",
+        "label": "Phoenix 311"
+      },
+      "philadelphia": {
+        "phone": "311",
+        "portal": "https://www.phila.gov/departments/philly311/",
+        "label": "Philly311"
+      },
+      "san-antonio": {
+        "phone": "311",
+        "portal": "https://www.sanantonio.gov/311",
+        "label": "San Antonio 311"
+      },
+      "boston": {
+        "phone": "311",
+        "portal": "https://www.boston.gov/departments/boston-311",
+        "label": "Boston 311"
+      }
+    }
+  },
+  "trends": [],
+  "outbound": [],
+  "sessionSeeds": []
+}
