@@ -21,7 +21,7 @@
       <li>Email/password auth (Google uses the same subx-skins project when that provider is enabled).</li>
       <li>Account docs live at <code>users/{uid}</code> with a display name and <code>siteId</code> of <code>311chat</code>.</li>
       <li>Posts are public reads. Images go to Storage under <code>posts/311chat/{uid}/</code>.</li>
-      <li>City and ZIP stay in the page. The location button runs only after you click it, and only through the browser's own prompt. No network-address lookup. No fingerprint.</li>
+      <li>A city or ZIP you submit is used to name the place. A ZIP is looked up at Zippopotam (api.zippopotam.us). A city that is not in the listed set is looked up at Open-Meteo's geocoding service. The location button runs only after you click it, and only through the browser's own prompt. Those coordinates stay in the browser and are compared with listed cities. If none is close, we ask for a ZIP and do not upload them. No hardware-address lookup. No fingerprint.</li>
       <li>No third-party tag manager. No ads. No assistant on the hot path.</li>
     </ul>
     <p>If you want an account removed, contact the operator of this preview. This stub is not a DPA, CCPA pack, or counsel opinion.</p>
