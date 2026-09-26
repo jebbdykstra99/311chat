@@ -195,7 +195,7 @@
     }
   ],
   "directory": {
-    "note": "Official contacts only. Top strip: SF, San Jose, Denver, Palo Alto, NYC. ZIP/city lookup expands further. Unofficial helper — not 911.",
+    "note": "Official contacts only. Top chips: San Francisco, San Jose, Denver, Palo Alto, then major US cities. Unofficial helper — not 911. v=6.",
     "cities": {
       "nyc": {
         "phone": "311",
@@ -376,6 +376,6 @@
       ]
     }
   },
-  "cacheBust": 1,
-  "v": 1
+  "cacheBust": 6,
+  "v": 6
 }
