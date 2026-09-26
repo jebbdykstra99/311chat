@@ -82,6 +82,14 @@
       "nav": true
     },
     {
+      "slug": "oakland",
+      "label": "Oakland",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Oakland 311 — call 311 or use the official service request portal.",
+      "nav": true
+    },
+    {
       "slug": "nyc",
       "label": "New York City",
       "parent": null,
@@ -146,56 +154,16 @@
       "nav": true
     },
     {
-      "slug": "redwood-city",
-      "label": "Redwood City",
+      "slug": "seattle",
+      "label": "Seattle",
       "parent": null,
       "kind": "city",
-      "blurb": "myRWC — Redwood City service requests. City Hall 650-780-7000.",
-      "nav": true
-    },
-    {
-      "slug": "menlo-park",
-      "label": "Menlo Park",
-      "parent": null,
-      "kind": "city",
-      "blurb": "ACT Menlo Park — non-emergency reports. City Hall 650-330-6600.",
-      "nav": true
-    },
-    {
-      "slug": "mountain-view",
-      "label": "Mountain View",
-      "parent": null,
-      "kind": "city",
-      "blurb": "Ask Mountain View — city service requests. City Hall 650-903-6300.",
-      "nav": true
-    },
-    {
-      "slug": "sunnyvale",
-      "label": "Sunnyvale",
-      "parent": null,
-      "kind": "city",
-      "blurb": "MySunnyvale — report issues to the city. General information 408-730-7500.",
-      "nav": true
-    },
-    {
-      "slug": "cupertino",
-      "label": "Cupertino",
-      "parent": null,
-      "kind": "city",
-      "blurb": "Cupertino 311 — city service requests. City Hall 408-777-3200.",
-      "nav": true
-    },
-    {
-      "slug": "santa-clara",
-      "label": "Santa Clara",
-      "parent": null,
-      "kind": "city",
-      "blurb": "MySantaClara — service requests. Street division 408-615-3080.",
+      "blurb": "Seattle Customer Service Bureau — find non-emergency city help.",
       "nav": true
     }
   ],
   "directory": {
-    "note": "Official contacts only. Top chips: San Francisco, San Jose, Denver, Palo Alto, then major US cities. Unofficial helper — not 911. v=6.",
+    "note": "Official contacts. Two full chip rows (14 cities). Unofficial helper — not 911.",
     "cities": {
       "nyc": {
         "phone": "311",
@@ -240,14 +208,12 @@
       "denver": {
         "phone": "311",
         "portal": "https://www.denvergov.org/311",
-        "label": "Denver 311",
-        "name": "Denver"
+        "label": "Denver 311"
       },
       "sf": {
         "phone": "311",
         "portal": "https://sf311.org/",
-        "label": "SF 311",
-        "name": "San Francisco"
+        "label": "SF 311"
       },
       "redwood-city": {
         "phone": "650-780-7000",
@@ -287,8 +253,19 @@
       "san-jose": {
         "phone": "311",
         "portal": "https://311.sanjoseca.gov/",
-        "label": "San José 311",
-        "name": "San Jose"
+        "label": "San José 311"
+      },
+      "oakland": {
+        "phone": "311",
+        "portal": "https://www.oaklandca.gov/services/oak311",
+        "label": "Oak311",
+        "name": "Oakland"
+      },
+      "seattle": {
+        "phone": "206-684-2489",
+        "portal": "https://www.seattle.gov/customer-service-bureau",
+        "label": "Seattle CSB",
+        "name": "Seattle"
       }
     },
     "topStrip": [
@@ -309,8 +286,44 @@
         "label": "Palo Alto"
       },
       {
+        "id": "oakland",
+        "label": "Oakland"
+      },
+      {
         "id": "nyc",
-        "label": "New York"
+        "label": "New York City"
+      },
+      {
+        "id": "la",
+        "label": "Los Angeles"
+      },
+      {
+        "id": "chicago",
+        "label": "Chicago"
+      },
+      {
+        "id": "houston",
+        "label": "Houston"
+      },
+      {
+        "id": "phoenix",
+        "label": "Phoenix"
+      },
+      {
+        "id": "philadelphia",
+        "label": "Philadelphia"
+      },
+      {
+        "id": "san-antonio",
+        "label": "San Antonio"
+      },
+      {
+        "id": "boston",
+        "label": "Boston"
+      },
+      {
+        "id": "seattle",
+        "label": "Seattle"
       }
     ]
   },
@@ -376,6 +389,6 @@
       ]
     }
   },
-  "cacheBust": 6,
-  "v": 6
+  "cacheBust": 7,
+  "v": 7
 }
