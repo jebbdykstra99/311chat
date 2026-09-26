@@ -5,16 +5,16 @@
   "name": "311chat",
   "tagline": "Non-emergency city help. Find your 311.",
   "composePlaceholder": "What needs fixing in your city?",
-  "emptyState": "Pick your city above to find official 311 channels. Sign in to talk with neighbors. Guest can browse only.",
+  "emptyState": "Find your city above for official 311 channels. Room Brief on the right has when-to-use guidance (national until you locate). Sign in to talk with neighbors.",
   "preview": true,
   "noindex": true,
   "domain": "311chat.com",
   "earlyWelcome": false,
   "dms": false,
   "robots": "noindex, nofollow",
-  "honesty": "Unofficial helper · not a substitute for 911 · links to official city channels · preview",
+  "honesty": "Unofficial helper \u00b7 not a substitute for 911 \u00b7 links to official city channels \u00b7 preview",
   "trustBlurb": "Unofficial helper. Not a substitute for 911. Links to official city channels. Guest can browse. Preview.",
-  "exploreExplainer": "Eight city nests. Pick one for the official 311 handoff. This room does not file the report.",
+  "exploreExplainer": "Find your city's official 311 handoff. Room Brief stays national until you choose a place. This room does not file the report.",
   "locationGate": {
     "enabled": true,
     "prompt": "Where are you? We'll find your city's non-emergency 311.",
@@ -54,7 +54,7 @@
       "label": "New York City",
       "parent": null,
       "kind": "city",
-      "blurb": "NYC 311 — call 311 or use the official portal.",
+      "blurb": "NYC 311 \u2014 call 311 or use the official portal.",
       "nav": true
     },
     {
@@ -62,7 +62,7 @@
       "label": "Los Angeles",
       "parent": null,
       "kind": "city",
-      "blurb": "LA 311 — MyLA311 and 3-1-1.",
+      "blurb": "LA 311 \u2014 MyLA311 and 3-1-1.",
       "nav": true
     },
     {
@@ -70,7 +70,7 @@
       "label": "Chicago",
       "parent": null,
       "kind": "city",
-      "blurb": "CHI 311 — non-emergency city services.",
+      "blurb": "CHI 311 \u2014 non-emergency city services.",
       "nav": true
     },
     {
@@ -78,7 +78,7 @@
       "label": "Houston",
       "parent": null,
       "kind": "city",
-      "blurb": "Houston 311 — city services and info.",
+      "blurb": "Houston 311 \u2014 city services and info.",
       "nav": true
     },
     {
@@ -86,7 +86,7 @@
       "label": "Phoenix",
       "parent": null,
       "kind": "city",
-      "blurb": "Phoenix 311 — neighborhood services.",
+      "blurb": "Phoenix 311 \u2014 neighborhood services.",
       "nav": true
     },
     {
@@ -94,7 +94,7 @@
       "label": "Philadelphia",
       "parent": null,
       "kind": "city",
-      "blurb": "Philly 311 — non-emergency municipal help.",
+      "blurb": "Philly 311 \u2014 non-emergency municipal help.",
       "nav": true
     },
     {
@@ -102,7 +102,7 @@
       "label": "San Antonio",
       "parent": null,
       "kind": "city",
-      "blurb": "San Antonio 311 — city services.",
+      "blurb": "San Antonio 311 \u2014 city services.",
       "nav": true
     },
     {
@@ -110,7 +110,7 @@
       "label": "Boston",
       "parent": null,
       "kind": "city",
-      "blurb": "Boston 311 — report and request city services.",
+      "blurb": "Boston 311 \u2014 report and request city services.",
       "nav": true
     }
   ],
@@ -161,5 +161,49 @@
   },
   "trends": [],
   "outbound": [],
-  "sessionSeeds": []
+  "sessionSeeds": [],
+  "rail": {
+    "kind": "outbound",
+    "title": "Room Brief",
+    "kicker": "On 311",
+    "meta": "National guidance \u00b7 preview \u00b7 noindex",
+    "footer": "Unofficial helper. Not 911. National tips until you pick a city \u2014 then local handoffs. We do not file your report.",
+    "fact": {
+      "tag": "FACT",
+      "headline": "311 is for city services \u2014 not life-or-death",
+      "body": "Use 311 for potholes, streetlights, graffiti, trash, abandoned vehicles, and other non-emergency city work. Call 911 for crime in progress, fire, medical emergencies, or immediate danger. Pick your city above for local portals; this rail stays general until then."
+    },
+    "outbound": [
+      {
+        "tag": "When to call",
+        "headline": "Right call: 911 vs 311",
+        "url": "https://www.sf.gov/make-right-call-right-help",
+        "snippet": "Clear split used by major cities: 911 for emergencies and crisis; 311 for non-emergency city services, cleaning, graffiti, abandoned vehicles, street repair, and info.",
+        "meta": "Best practice \u00b7 official example"
+      },
+      {
+        "tag": "How it works",
+        "headline": "What a service request is",
+        "url": "https://portal.311.nyc.gov/article/?kanumber=KA-03116",
+        "snippet": "How requests work after you file: confirmation, agency response timing (SLA), privacy \u2014 same pattern across Open311-style cities.",
+        "meta": "Best practice \u00b7 official example"
+      },
+      {
+        "tag": "Tips",
+        "headline": "Photo + exact spot = faster fix",
+        "url": "https://www.denvergov.org/Online-Services-Hub/Report-an-Issue",
+        "snippet": "Successful 311 reports usually include a clear photo, cross-streets or address, and the right category. Re-file if closed but not fixed. Emergencies stay on 911.",
+        "meta": "Best practice \u00b7 report well"
+      }
+    ],
+    "porch": {
+      "prompt": "What should neighbors try first?",
+      "options": [
+        "Call / app 311",
+        "Walk it off",
+        "Post in the room"
+      ],
+      "dwellMs": 9000
+    }
+  }
 }
