@@ -389,6 +389,11 @@
       ]
     }
   },
-  "cacheBust": 7,
-  "v": 7
+  "cacheBust": 8,
+  "v": 8,
+  "stories": {
+    "enabled": true,
+    "maxSeconds": 15,
+    "maxBytes": 8000000
+  }
 }
