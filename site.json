@@ -204,6 +204,21 @@
         "Post in the room"
       ],
       "dwellMs": 9000
+    },
+    "overlay": {
+      "enabled": true,
+      "ms": 7000,
+      "headline": "311 vs 911 \u2014 then file with your city",
+      "links": [
+        {
+          "label": "Right call: 911 vs 311",
+          "url": "https://www.sf.gov/make-right-call-right-help"
+        },
+        {
+          "label": "What a service request is",
+          "url": "https://portal.311.nyc.gov/article/?kanumber=KA-03116"
+        }
+      ]
     }
   }
 }
