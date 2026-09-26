@@ -886,6 +886,23 @@
   }
 
   var RAIL_MAX = 3;
+  var localRailPin = null;
+
+  function setLocalRailPin(card) {
+    var next = (card && card.headline && card.url) ? {
+      tag: card.tag || 'Your city',
+      headline: card.headline,
+      snippet: card.snippet || '',
+      meta: card.meta || 'Local · after you locate',
+      url: card.url
+    } : null;
+    var prevKey = localRailPin ? (localRailPin.url + '|' + localRailPin.headline) : '';
+    var nextKey = next ? (next.url + '|' + next.headline) : '';
+    if (prevKey === nextKey) return;
+    localRailPin = next;
+    renderTrends(true);
+  }
+  window.subxSetLocalRailPin = setLocalRailPin;
 
   function nwsHeaders(accept) {
     var cfg = railCfg();
@@ -1460,6 +1477,19 @@
     return out;
   }
 
+  function railPaintItems() {
+    var national = outboundCards();
+    var slots = railNwsSlots();
+    var max = parseInt(railCfg().maxCards, 10) || RAIL_MAX;
+    if (max < 1) max = RAIL_MAX;
+    var cards = national.slice();
+    // FACT is painted outside this list. A local pin is added only when a slot is free.
+    if (localRailPin && national.length < max && national.length < slots) {
+      cards.push(localRailPin);
+    }
+    return cards.slice(0, slots);
+  }
+
   function bartCdata(node) {
     if (node == null) return '';
     if (typeof node === 'string') return node;
@@ -1986,8 +2016,8 @@
   }
 
   function seedRail() {
-    var extra = outboundCards();
-    paintRail(extra.length ? extra.slice(0, railNwsSlots()) : []);
+    var extra = railPaintItems();
+    paintRail(extra.length ? extra : []);
   }
 
   function commitRail(items) {
@@ -2063,7 +2093,7 @@
         paintRail([]);
         startPorchDwell();
       }
-      commitRail(outboundCards().slice(0, railNwsSlots()));
+      commitRail(railPaintItems());
       return;
     }
     if (!quiet && !railHasItems()) {
