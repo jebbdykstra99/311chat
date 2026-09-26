@@ -50,6 +50,38 @@
   },
   "nests": [
     {
+      "slug": "sf",
+      "label": "San Francisco",
+      "parent": null,
+      "kind": "city",
+      "blurb": "SF 311 — call 311, or 415-701-2311 from outside the city.",
+      "nav": true
+    },
+    {
+      "slug": "san-jose",
+      "label": "San Jose",
+      "parent": null,
+      "kind": "city",
+      "blurb": "San José 311 — call 311, or 408-535-3500.",
+      "nav": true
+    },
+    {
+      "slug": "denver",
+      "label": "Denver",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Denver 311 — call 311, or 720-913-1311 from outside the city.",
+      "nav": true
+    },
+    {
+      "slug": "palo-alto",
+      "label": "Palo Alto",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Palo Alto 311 — city service requests. General information 650-329-2100.",
+      "nav": true
+    },
+    {
       "slug": "nyc",
       "label": "New York City",
       "parent": null,
@@ -111,6 +143,54 @@
       "parent": null,
       "kind": "city",
       "blurb": "Boston 311 — report and request city services.",
+      "nav": true
+    },
+    {
+      "slug": "redwood-city",
+      "label": "Redwood City",
+      "parent": null,
+      "kind": "city",
+      "blurb": "myRWC — Redwood City service requests. City Hall 650-780-7000.",
+      "nav": true
+    },
+    {
+      "slug": "menlo-park",
+      "label": "Menlo Park",
+      "parent": null,
+      "kind": "city",
+      "blurb": "ACT Menlo Park — non-emergency reports. City Hall 650-330-6600.",
+      "nav": true
+    },
+    {
+      "slug": "mountain-view",
+      "label": "Mountain View",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Ask Mountain View — city service requests. City Hall 650-903-6300.",
+      "nav": true
+    },
+    {
+      "slug": "sunnyvale",
+      "label": "Sunnyvale",
+      "parent": null,
+      "kind": "city",
+      "blurb": "MySunnyvale — report issues to the city. General information 408-730-7500.",
+      "nav": true
+    },
+    {
+      "slug": "cupertino",
+      "label": "Cupertino",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Cupertino 311 — city service requests. City Hall 408-777-3200.",
+      "nav": true
+    },
+    {
+      "slug": "santa-clara",
+      "label": "Santa Clara",
+      "parent": null,
+      "kind": "city",
+      "blurb": "MySantaClara — service requests. Street division 408-615-3080.",
       "nav": true
     }
   ],
