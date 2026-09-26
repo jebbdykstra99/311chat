@@ -115,7 +115,7 @@
     }
   ],
   "directory": {
-    "note": "Official contacts only; expand later. Placeholders until FACT-cleared.",
+    "note": "Official contacts only. Top strip: SF, San Jose, Denver, Palo Alto, NYC. ZIP/city lookup expands further. Unofficial helper — not 911.",
     "cities": {
       "nyc": {
         "phone": "311",
@@ -156,8 +156,83 @@
         "phone": "311",
         "portal": "https://www.boston.gov/departments/boston-311",
         "label": "Boston 311"
+      },
+      "denver": {
+        "phone": "311",
+        "portal": "https://www.denvergov.org/311",
+        "label": "Denver 311",
+        "name": "Denver"
+      },
+      "sf": {
+        "phone": "311",
+        "portal": "https://sf311.org/",
+        "label": "SF 311",
+        "name": "San Francisco"
+      },
+      "redwood-city": {
+        "phone": "650-780-7000",
+        "portal": "https://www.redwoodcity.org/myrwc",
+        "label": "myRWC"
+      },
+      "menlo-park": {
+        "phone": "650-330-6600",
+        "portal": "https://www.menlopark.gov/Services/ACT-Menlo-Park",
+        "label": "ACT Menlo Park"
+      },
+      "palo-alto": {
+        "phone": "650-329-2100",
+        "portal": "https://www.paloalto.gov/Residents/Services/Report-an-Issue/Palo-Alto-311",
+        "label": "Palo Alto 311"
+      },
+      "mountain-view": {
+        "phone": "650-903-6300",
+        "portal": "https://www.mountainview.gov/our-city/departments/information-technology/ask-mountain-view",
+        "label": "Ask Mountain View"
+      },
+      "sunnyvale": {
+        "phone": "408-730-7500",
+        "portal": "https://www.sunnyvale.ca.gov/city-services/online-services/mysunnyvale",
+        "label": "MySunnyvale"
+      },
+      "cupertino": {
+        "phone": "408-777-3200",
+        "portal": "https://www.cupertino.gov/Residents/Cupertino-311",
+        "label": "Cupertino 311"
+      },
+      "santa-clara": {
+        "phone": "408-615-3080",
+        "portal": "https://www.santaclaraca.gov/services/make-a-service-request",
+        "label": "MySantaClara"
+      },
+      "san-jose": {
+        "phone": "311",
+        "portal": "https://311.sanjoseca.gov/",
+        "label": "San José 311",
+        "name": "San Jose"
       }
-    }
+    },
+    "topStrip": [
+      {
+        "id": "sf",
+        "label": "San Francisco"
+      },
+      {
+        "id": "san-jose",
+        "label": "San Jose"
+      },
+      {
+        "id": "denver",
+        "label": "Denver"
+      },
+      {
+        "id": "palo-alto",
+        "label": "Palo Alto"
+      },
+      {
+        "id": "nyc",
+        "label": "New York"
+      }
+    ]
   },
   "trends": [],
   "outbound": [],
