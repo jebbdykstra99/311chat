@@ -18,6 +18,8 @@
     boston: ['boston'],
     denver: ['denver'],
     sf: ['sf', 'san francisco'],
+    oakland: ['oakland'],
+    seattle: ['seattle'],
     'redwood-city': ['redwood city'],
     'menlo-park': ['menlo park'],
     'palo-alto': ['palo alto'],
@@ -42,7 +44,9 @@
     '021': 'boston', '022': 'boston',
     '802': 'denver',
     '941': 'sf',
-    '951': 'san-jose'
+    '946': 'oakland',
+    '951': 'san-jose',
+    '981': 'seattle'
   };
 
   // Peninsula cities share 940/950, so these are exact ZIPs, not 3-digit prefixes.
@@ -68,6 +72,8 @@
     boston: [42.3601, -71.0589],
     denver: [39.7392, -104.9903],
     sf: [37.7749, -122.4194],
+    oakland: [37.8044, -122.2712],
+    seattle: [47.6062, -122.3321],
     'redwood-city': [37.4852, -122.2364],
     'menlo-park': [37.453, -122.1817],
     'palo-alto': [37.4419, -122.143],
@@ -346,6 +352,24 @@
       else sessionStorage.removeItem(LS_NEST);
     } catch (e) { /* private mode */ }
   }
+  function syncLocalRail() {
+    var pin = null;
+    var nest = nestBySlug(activeSlug);
+    var cities = (site && site.directory && site.directory.cities) || {};
+    var row = (activeSlug && !fallbackPlace) ? cities[activeSlug] : null;
+    if (nest && row && row.portal) {
+      pin = {
+        tag: 'Your city',
+        headline: row.label || nest.label || 'Local 311',
+        snippet: 'Official channel for the place you chose. We do not file the report.',
+        meta: 'Local · after you locate',
+        url: row.portal
+      };
+    }
+    try {
+      if (typeof window.subxSetLocalRailPin === 'function') window.subxSetLocalRailPin(pin);
+    } catch (e) { /* rail is optional */ }
+  }
   function selectSlug(slug, note, isErr) {
     resolveGen++;
     if (slug && !nestBySlug(slug)) slug = '';
@@ -357,6 +381,7 @@
     renderPicks();
     renderIssues();
     renderHandoff();
+    syncLocalRail();
     if (note) setNote(note, isErr);
     else if (nest) setNote(nest.label + ' · nest ?nest=' + nest.slug, false);
     else setNote('Pick a city, enter a ZIP, or use location if you want to.', false);
@@ -372,6 +397,7 @@
     renderPicks();
     renderIssues();
     renderHandoff();
+    syncLocalRail();
     setNote(note || (placeTitle(fallbackPlace) + '. We do not file the report.'), !!isErr);
   }
   function lookupZip(zip) {
