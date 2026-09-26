@@ -353,8 +353,6 @@
     fallbackPlace = null;
     rememberNest(activeSlug);
     var nest = nestBySlug(activeSlug);
-    var city = $('city-input');
-    if (city && nest) city.value = nest.label;
     writeQuery();
     renderPicks();
     renderIssues();
