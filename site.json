@@ -389,11 +389,115 @@
       ]
     }
   },
-  "cacheBust": 8,
-  "v": 8,
+  "cacheBust": 9,
+  "v": 9,
   "stories": {
     "enabled": true,
     "maxSeconds": 15,
     "maxBytes": 8000000
+  },
+  "taxonomy": {
+    "version": 1,
+    "name": "City services",
+    "symbolPrefix": "$",
+    "topics": [
+      {
+        "id": "911-vs-311",
+        "label": "911 vs 311",
+        "kind": "service",
+        "blurb": "Right call",
+        "followDefault": true,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "potholes",
+        "label": "Potholes",
+        "kind": "service",
+        "blurb": "Street repair",
+        "followDefault": true,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "streetlights",
+        "label": "Streetlights",
+        "kind": "service",
+        "blurb": "Outages",
+        "followDefault": true,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "trash",
+        "label": "Trash & bulk",
+        "kind": "service",
+        "blurb": "Collection",
+        "followDefault": true,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "noise",
+        "label": "Noise",
+        "kind": "service",
+        "blurb": "Quiet hours",
+        "followDefault": false,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "graffiti",
+        "label": "Graffiti",
+        "kind": "service",
+        "blurb": "Abatement",
+        "followDefault": false,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "water",
+        "label": "Water & sewer",
+        "kind": "service",
+        "blurb": "Utilities issues",
+        "followDefault": false,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "parks",
+        "label": "Parks",
+        "kind": "service",
+        "blurb": "Park assets",
+        "followDefault": false,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "permits",
+        "label": "Permits",
+        "kind": "service",
+        "blurb": "Not always 311",
+        "followDefault": false,
+        "adminSeed": true,
+        "status": "active"
+      },
+      {
+        "id": "open-data",
+        "label": "Open data",
+        "kind": "theme",
+        "blurb": "City dashboards",
+        "followDefault": false,
+        "adminSeed": true,
+        "status": "active"
+      }
+    ],
+    "defaultWatchlist": [
+      "911-vs-311",
+      "potholes",
+      "streetlights",
+      "trash"
+    ],
+    "notes": "Factory followable topics (StockTwits-style). Users keep/unfollow/add on their watchlist."
   }
 }
