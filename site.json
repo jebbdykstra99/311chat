@@ -10,7 +10,7 @@
   "noindex": true,
   "domain": "311chat.com",
   "earlyWelcome": false,
-  "dms": false,
+  "dms": true,
   "robots": "noindex, nofollow",
   "honesty": "Unofficial helper · not a substitute for 911 · links to official city channels · preview",
   "trustBlurb": "Unofficial helper. Not a substitute for 911. Links to official city channels. Guest can browse. Preview.",
