@@ -1,7 +1,6 @@
 {
   "siteId": "311chat",
   "roomNumber": 17,
-  "redditSr": "311chat",
   "name": "311chat",
   "tagline": "Non-emergency city help. Find your 311.",
   "composePlaceholder": "What needs fixing in your city?",
@@ -499,5 +498,11 @@
       "trash"
     ],
     "notes": "Factory followable topics (StockTwits-style). Users keep/unfollow/add on their watchlist."
+  },
+  "redditCrosspost": false,
+  "skin": {
+    "avatarInitials": "311",
+    "bioDefault": "Unofficial helper — not a substitute for 911.",
+    "profileEmpty": "No posts yet. Official 311 is the handoff at the top of Home. Sign in to talk with neighbors."
   }
 }
