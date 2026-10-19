@@ -508,5 +508,6 @@
     "avatarInitials": "311",
     "bioDefault": "Unofficial helper — not a substitute for 911.",
     "profileEmpty": "No posts yet. Official 311 is the handoff at the top of Home. Sign in to talk with neighbors."
-  }
+  },
+  "minAge": 18
 }
