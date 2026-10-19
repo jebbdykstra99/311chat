@@ -160,10 +160,58 @@
       "kind": "city",
       "blurb": "Seattle Customer Service Bureau — find non-emergency city help.",
       "nav": true
+    },
+    {
+      "slug": "redwood-city",
+      "label": "Redwood City",
+      "parent": null,
+      "kind": "city",
+      "blurb": "myRWC — Redwood City service requests. City Hall 650-780-7000.",
+      "nav": true
+    },
+    {
+      "slug": "menlo-park",
+      "label": "Menlo Park",
+      "parent": null,
+      "kind": "city",
+      "blurb": "ACT Menlo Park — non-emergency reports. City Hall 650-330-6600.",
+      "nav": true
+    },
+    {
+      "slug": "mountain-view",
+      "label": "Mountain View",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Ask Mountain View — city service requests. City Hall 650-903-6300.",
+      "nav": true
+    },
+    {
+      "slug": "sunnyvale",
+      "label": "Sunnyvale",
+      "parent": null,
+      "kind": "city",
+      "blurb": "MySunnyvale — report issues to the city. General information 408-730-7500.",
+      "nav": true
+    },
+    {
+      "slug": "cupertino",
+      "label": "Cupertino",
+      "parent": null,
+      "kind": "city",
+      "blurb": "Cupertino 311 — city service requests. City Hall 408-777-3200.",
+      "nav": true
+    },
+    {
+      "slug": "santa-clara",
+      "label": "Santa Clara",
+      "parent": null,
+      "kind": "city",
+      "blurb": "MySantaClara — service requests. Street division 408-615-3080.",
+      "nav": true
     }
   ],
   "directory": {
-    "note": "Official contacts. Two full chip rows (14 cities). Unofficial helper — not 911.",
+    "note": "Official contacts for listed cities. Unofficial helper — not 911.",
     "cities": {
       "nyc": {
         "phone": "311",
@@ -389,8 +437,8 @@
       ]
     }
   },
-  "cacheBust": 9,
-  "v": 9,
+  "cacheBust": 10,
+  "v": 10,
   "stories": {
     "enabled": true,
     "maxSeconds": 15,
