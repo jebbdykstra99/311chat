@@ -644,7 +644,9 @@
       live: true,
       imageUrl: d.imageUrl || null,
       poll: d.poll || null,
-      nestSlug: d.nestSlug || ''
+      nestSlug: d.nestSlug || '',
+      steward: d.steward === true || d.adminSeed === true,
+      isAdminAuthor: uid === ADMIN_UID
     };
   }
 
@@ -1351,6 +1353,13 @@
     highlightSocial(roomHighlight);
   }
 
+  function stewardPillHtml(post) {
+    if (post && post.steward) {
+      return '<span class="post-steward-pill" title="Operated by SubX using AI tools. Not a real person.">AI steward · SubX</span>';
+    }
+    if (post && post.isAdminAuthor) return '<span class="post-steward-pill">Steward</span>';
+    return '';
+  }
   function renderPostMedia(post) {
     var html = '';
     if (post.imageUrl) {
@@ -1409,6 +1418,7 @@
                 ? ' data-profile-uid="' + escapeHtml(post.authorUid) + '" data-profile-name="' + escapeHtml(post.name) + '" data-profile-handle="' + escapeHtml(post.handle) + '"'
                 : '') +
             '>' + escapeHtml(post.name) + '</span>' +
+            stewardPillHtml(post) +
             '<span class="post-handle">@' + escapeHtml(post.handle) + '</span>' +
             '<span class="post-time">· ' + (post.hours != null ? post.hours + 'h' : 'now') + '</span>' +
           '</div>' +
