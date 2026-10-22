@@ -375,11 +375,12 @@
       targetUid: post.authorUid || '',
       reporterUid: liveUid(),
       reason: 'abuse',
+      status: 'open',
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     }).then(function () {
-      composeErr('Reported. Thanks.');
+      toast('Reported. Thanks.');
     }).catch(function (e) {
-      composeErr((e && e.message) ? e.message : 'Could not report.');
+      toast(reportErr(e));
     });
   }
   function blockUser(uid) {
@@ -675,6 +676,17 @@
       });
   }
 
+  function toast(m) {
+    var t = document.createElement('div');
+    t.setAttribute('role', 'status');
+    t.textContent = m;
+    t.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9999;padding:10px 16px;border-radius:8px;background:#111;color:#fff;font-size:14px';
+    document.body.appendChild(t);
+    setTimeout(function () { t.remove(); }, 4000);
+  }
+  function reportErr(e) {
+    return (e && e.code === 'permission-denied') ? 'Report not accepted. Verify your email, then refresh and try again.' : 'Could not report. Try again.';
+  }
   function composeErr(msg) {
     var el = document.getElementById('thoughts-compose-err');
     if (!el) {
@@ -5161,11 +5173,12 @@
       targetUid: story.authorUid || '',
       reporterUid: liveUid(),
       reason: 'abuse',
+      status: 'open',
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     }).then(function () {
-      composeErr('Reported. Thanks.');
+      toast('Reported. Thanks.');
     }).catch(function (e) {
-      composeErr((e && e.message) ? e.message : 'Could not report.');
+      toast(reportErr(e));
     });
   }
   function deleteOwnStory(id) {
