@@ -1,6 +1,6 @@
 # 311chat
 
-SubX room #17 — municipal non-emergency 311 router (preview).
+SubX room #17: municipal non-emergency 311 router (preview).
 
 Static site. `siteId` is `311chat`. Custom domain in `CNAME` is `311chat.com`. Preview banner and `noindex` stay on.
 
