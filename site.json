@@ -54,7 +54,7 @@
       "label": "San Francisco",
       "parent": null,
       "kind": "city",
-      "blurb": "SF 311 — call 311, or 415-701-2311 from outside the city.",
+      "blurb": "SF 311: call 311, or 415-701-2311 from outside the city.",
       "nav": true
     },
     {
@@ -62,7 +62,7 @@
       "label": "San Jose",
       "parent": null,
       "kind": "city",
-      "blurb": "San José 311 — call 311, or 408-535-3500.",
+      "blurb": "San José 311: call 311, or 408-535-3500.",
       "nav": true
     },
     {
@@ -70,7 +70,7 @@
       "label": "Denver",
       "parent": null,
       "kind": "city",
-      "blurb": "Denver 311 — call 311, or 720-913-1311 from outside the city.",
+      "blurb": "Denver 311: call 311, or 720-913-1311 from outside the city.",
       "nav": true
     },
     {
@@ -78,7 +78,7 @@
       "label": "Palo Alto",
       "parent": null,
       "kind": "city",
-      "blurb": "Palo Alto 311 — city service requests. General information 650-329-2100.",
+      "blurb": "Palo Alto 311: city service requests. General information 650-329-2100.",
       "nav": true
     },
     {
@@ -86,7 +86,7 @@
       "label": "Oakland",
       "parent": null,
       "kind": "city",
-      "blurb": "Oakland 311 — call 311 or use the official service request portal.",
+      "blurb": "Oakland 311: call 311 or use the official service request portal.",
       "nav": true
     },
     {
@@ -94,7 +94,7 @@
       "label": "New York City",
       "parent": null,
       "kind": "city",
-      "blurb": "NYC 311 — call 311 or use the official portal.",
+      "blurb": "NYC 311: call 311 or use the official portal.",
       "nav": true
     },
     {
@@ -102,7 +102,7 @@
       "label": "Los Angeles",
       "parent": null,
       "kind": "city",
-      "blurb": "LA 311 — MyLA311 and 3-1-1.",
+      "blurb": "LA 311: MyLA311 and 3-1-1.",
       "nav": true
     },
     {
@@ -110,7 +110,7 @@
       "label": "Chicago",
       "parent": null,
       "kind": "city",
-      "blurb": "CHI 311 — non-emergency city services.",
+      "blurb": "CHI 311: non-emergency city services.",
       "nav": true
     },
     {
@@ -118,7 +118,7 @@
       "label": "Houston",
       "parent": null,
       "kind": "city",
-      "blurb": "Houston 311 — city services and info.",
+      "blurb": "Houston 311: city services and info.",
       "nav": true
     },
     {
@@ -126,7 +126,7 @@
       "label": "Phoenix",
       "parent": null,
       "kind": "city",
-      "blurb": "Phoenix 311 — neighborhood services.",
+      "blurb": "Phoenix 311: neighborhood services.",
       "nav": true
     },
     {
@@ -134,7 +134,7 @@
       "label": "Philadelphia",
       "parent": null,
       "kind": "city",
-      "blurb": "Philly 311 — non-emergency municipal help.",
+      "blurb": "Philly 311: non-emergency municipal help.",
       "nav": true
     },
     {
@@ -142,7 +142,7 @@
       "label": "San Antonio",
       "parent": null,
       "kind": "city",
-      "blurb": "San Antonio 311 — city services.",
+      "blurb": "San Antonio 311: city services.",
       "nav": true
     },
     {
@@ -150,7 +150,7 @@
       "label": "Boston",
       "parent": null,
       "kind": "city",
-      "blurb": "Boston 311 — report and request city services.",
+      "blurb": "Boston 311: report and request city services.",
       "nav": true
     },
     {
@@ -158,12 +158,12 @@
       "label": "Seattle",
       "parent": null,
       "kind": "city",
-      "blurb": "Seattle Customer Service Bureau — find non-emergency city help.",
+      "blurb": "Seattle Customer Service Bureau: find non-emergency city help.",
       "nav": true
     }
   ],
   "directory": {
-    "note": "Official contacts. Two full chip rows (14 cities). Unofficial helper — not 911.",
+    "note": "Official contacts. Two full chip rows (14 cities). Unofficial helper, not 911.",
     "cities": {
       "nyc": {
         "phone": "311",
@@ -335,11 +335,11 @@
     "title": "Room Brief",
     "kicker": "On 311",
     "meta": "National best practice · preview · noindex",
-    "footer": "Unofficial helper. Not 911. National tips until you pick a city — then at most one local official link. We do not file your report.",
+    "footer": "Unofficial helper. Not 911. National tips until you pick a city, then at most one local official link. We do not file your report.",
     "fact": {
       "tag": "FACT",
       "headline": "911 saves lives. 311 fixes the city.",
-      "body": "Call 911 for crime in progress, fire, medical emergency, or immediate danger — if unsure, call 911 and let the dispatcher decide. Use 311 (or your city's non-emergency portal) for potholes, streetlights, graffiti, trash, abandoned vehicles, noise, and other non-emergency city services. This rail stays national until you locate; local handoffs never replace this FACT."
+      "body": "Call 911 for crime in progress, fire, medical emergency, or immediate danger. If unsure, call 911 and let the dispatcher decide. Use 311 (or your city's non-emergency portal) for potholes, streetlights, graffiti, trash, abandoned vehicles, noise, and other non-emergency city services. This rail stays national until you locate; local handoffs never replace this FACT."
     },
     "outbound": [
       {
@@ -353,7 +353,7 @@
         "tag": "How it works",
         "headline": "What a service request is",
         "url": "https://portal.311.nyc.gov/article/?kanumber=KA-03116",
-        "snippet": "A service request asks the city to inspect or fix something. You get a confirmation number, an agency SLA, and optional email/SMS status — pattern shared by Open311-style cities.",
+        "snippet": "A service request asks the city to inspect or fix something. You get a confirmation number, an agency SLA, and optional email/SMS status, a pattern shared by Open311-style cities.",
         "meta": "Best practice · official example · verified 2026-09-25"
       },
       {
