@@ -1,0 +1,16 @@
+{
+  "factory": "jebbdykstra99/subx-factory",
+  "version": "v1.2.8",
+  "room": "311chat",
+  "siteId": "311chat",
+  "files": {
+    "factory.js": "8cf2d04a0323c6fcc0a684c8861ce3100af68b90a9a7d0350f475d68e0fed853",
+    "styles.css": "4e2c85b6cdde64693055b9a1dea0b3e3bd4acbf159432703838f366148a77784"
+  },
+  "keepFiles": [
+    "gate.js",
+    "takedown.js"
+  ],
+  "exceptions": "see subx-factory EXCEPTIONS.md",
+  "stampedAt": "2026-11-05T17:55:24Z"
+}
