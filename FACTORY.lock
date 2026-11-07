@@ -5,7 +5,7 @@
   "siteId": "311chat",
   "files": {
     "factory.js": "e3a8df039c327664679121a12213a0d5018a3fc64fac4722e275e2ea72c1e4ae",
-    "styles.css": "4e2c85b6cdde64693055b9a1dea0b3e3bd4acbf159432703838f366148a77784"
+    "styles.css": "ffc2e76ee1f1f33b86dfef0f9ec072f9e593543f633d06ffed7fdce09a05208b"
   },
   "keepFiles": [
     "gate.js",
