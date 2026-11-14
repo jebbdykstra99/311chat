@@ -329,6 +329,24 @@
   "trends": [],
   "outbound": [],
   "sessionSeeds": [],
+  "featured": {
+    "featuredDays": 3,
+    "maxPinned": 3,
+    "articleMinChars": 600,
+    "label": "Our articles",
+    "handles": [
+      "zipfirst",
+      "streetlight",
+      "civicdesk",
+      "trashroute",
+      "portaltip",
+      "tickettrack",
+      "cityhallmap",
+      "milehigh311",
+      "ruralnote",
+      "parkdesk"
+    ]
+  },
   "rail": {
     "kind": "outbound",
     "title": "Room Brief",
